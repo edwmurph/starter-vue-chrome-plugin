@@ -5,7 +5,7 @@ const fs = require('fs')
 // Generate pages object
 const pages = {};
 
-const chromeName = fs.readdirSync(path.resolve(`src/entry`));
+const entries = fs.readdirSync(path.resolve(`src/entry`));
 
 function getFileExtension (filename) {
   return (/[.]/.exec(filename))
@@ -13,11 +13,11 @@ function getFileExtension (filename) {
     : undefined;
 }
 
-chromeName.forEach((name) => {
-  const fileExtension = getFileExtension(name);
-  const fileName = name.replace('.' + fileExtension, '');
+entries.forEach((entry) => {
+  const fileExtension = getFileExtension(entry);
+  const fileName = entry.replace('.' + fileExtension, '');
   pages[fileName] = {
-    entry: `src/entry/${name}`,
+    entry: `src/entry/${entry}`,
     template: 'public/index.html',
     filename: `${fileName}.html`
   }
