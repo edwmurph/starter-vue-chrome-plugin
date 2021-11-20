@@ -1,11 +1,11 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const path = require('path')
-const fs = require('fs')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const fs = require('fs');
 
 // Generate pages object
 const pages = {};
 
-const entries = fs.readdirSync(path.resolve(`src/entry`));
+const entries = fs.readdirSync(path.resolve('src/entry'));
 
 function getFileExtension (filename) {
   return (/[.]/.exec(filename))
@@ -19,8 +19,8 @@ entries.forEach((entry) => {
   pages[fileName] = {
     entry: `src/entry/${entry}`,
     template: 'public/index.html',
-    filename: `${fileName}.html`
-  }
+    filename: `${fileName}.html`,
+  };
 });
 
 module.exports = {
@@ -31,13 +31,13 @@ module.exports = {
       CopyWebpackPlugin([
         {
           from: path.resolve('src/manifest.json'),
-          to: `${path.resolve('dist')}/manifest.json`
-        }
-      ])
+          to: `${path.resolve('dist')}/manifest.json`,
+        },
+      ]),
     ],
     output: {
-      filename: `js/[name].js`,
-      chunkFilename: `[name].js`
-    }
-  }
-}
+      filename: 'js/[name].js',
+      chunkFilename: '[name].js',
+    },
+  },
+};
