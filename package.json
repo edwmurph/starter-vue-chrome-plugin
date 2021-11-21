@@ -10,7 +10,6 @@
     "build-watch": "vue-cli-service build-watch --mode development"
   },
   "dependencies": {
-    "core-js": "3.6.5",
     "vue": "2.6.11"
   },
   "devDependencies": {
