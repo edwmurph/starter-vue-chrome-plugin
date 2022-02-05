@@ -1,15 +1,15 @@
 <template>
-  <div class="popup">
+  <div class="devtools">
     <h1>Hello {{msg}}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'popup-index',
+  name: 'devtools-index',
   data () {
     return {
-      msg: 'popup'
+      msg: 'devtools'
     };
   }
 };
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-.popup {
+.devtools {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

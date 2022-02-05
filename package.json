@@ -5,19 +5,23 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "clean": "rm -rf dist",
+    "lint": "eslint . --ext .js,.vue",
+    "lint:fix": "eslint . --fix --ext .js,.vue",
     "build-watch": "vue-cli-service build-watch --mode development"
   },
   "dependencies": {
-    "vue": "2.6.11"
+    "core-js": "3.6.5",
+    "vue": "3.0.0"
   },
   "devDependencies": {
-    "@edwmurph/eslint-config": "1.0.0",
+    "@edwmurph/eslint-config": "3.1.0",
     "@vue/cli-plugin-babel": "4.5.0",
+    "@vue/cli-plugin-eslint": "4.5.0",
     "@vue/cli-service": "4.5.0",
+    "@vue/compiler-sfc": "3.0.0",
     "copy-webpack-plugin": "4.6.0",
-    "vue-cli-plugin-chrome-extension-cli": "1.0.8",
-    "vue-template-compiler": "2.6.11"
+    "eslint": "6.7.2",
+    "vue-cli-plugin-chrome-extension-cli": "1.0.9"
   }
 }

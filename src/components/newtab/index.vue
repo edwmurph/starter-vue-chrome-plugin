@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: 'newtab',
+  name: 'newtab-index',
   data () {
     return {
       msg: 'newtab'
-    }
+    };
   }
-}
+};
 
 </script>
 
