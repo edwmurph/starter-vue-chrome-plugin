@@ -30,12 +30,14 @@ module.exports = {
   filenameHashing: false,
   configureWebpack: {
     plugins: [
-      CopyWebpackPlugin([
-        {
-          from: path.resolve(`src/manifest.${process.env.NODE_ENV}.json`),
-          to: `${path.resolve('dist')}/manifest.json`
-        }
-      ])
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(`src/manifest.${process.env.NODE_ENV}.json`),
+            to: `${path.resolve('dist')}/manifest.json`
+          }
+        ]
+      })
     ],
     output: {
       filename: 'js/[name].js',
