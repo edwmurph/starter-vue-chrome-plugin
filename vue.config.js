@@ -5,23 +5,23 @@ const fs = require('fs');
 // Generate pages object
 const pages = {};
 
-function getEntryFile (entryPath) {
-  let files = fs.readdirSync(entryPath);
+function getEntryFile ( entryPath ) {
+  const files = fs.readdirSync( entryPath );
   return files;
 }
 
-const chromeName = getEntryFile(path.resolve('src/entry'));
+const chromeName = getEntryFile( path.resolve('src/entry') );
 
-function getFileExtension (filename) {
-  return (/[.]/.exec(filename)) ? /[^.]+$/.exec(filename)[0] : undefined;
+function getFileExtension ( filename ) {
+  return ( /[.]/.exec( filename ) ) ? /[^.]+$/.exec( filename )[0] : undefined;
 }
-chromeName.forEach((name) => {
-  const fileExtension = getFileExtension(name);
-  const fileName = name.replace('.' + fileExtension, '');
+chromeName.forEach( ( name ) => {
+  const fileExtension = getFileExtension( name );
+  const fileName = name.replace( '.' + fileExtension, '' );
   pages[fileName] = {
-    entry: `src/entry/${name}`,
+    entry: `src/entry/${ name }`,
     template: 'public/index.html',
-    filename: `${fileName}.html`
+    filename: `${ fileName }.html`
   };
 });
 
@@ -33,8 +33,8 @@ module.exports = {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: path.resolve(`src/manifest.${process.env.NODE_ENV}.json`),
-            to: `${path.resolve('dist')}/manifest.json`
+            from: path.resolve( `src/manifest.${ process.env.NODE_ENV }.json` ),
+            to: `${ path.resolve('dist') }/manifest.json`
           }
         ]
       })
